@@ -122,7 +122,7 @@ void MeshDisplayCustom::onInitialize()
     ImageDisplayBase::onInitialize();
 
     // it will only accept images if the frame in camera info is resolved
-    caminfo_tf_filter_ = new tf::MessageFilter<sensor_msgs::CameraInfo>( *context_->getTFClient(), fixed_frame_.toStdString(),
+    caminfo_tf_filter_ = new tf2_ros::MessageFilter<sensor_msgs::CameraInfo>( *context_->getTF2BufferPtr(), fixed_frame_.toStdString(),
                                                                          queue_size_property_->getInt(), update_nh_ );
 
     context_->getSceneManager()->addRenderQueueListener(this);

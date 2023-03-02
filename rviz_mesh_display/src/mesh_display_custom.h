@@ -46,7 +46,7 @@
 #include <image_transport/image_transport.h>
 #include <sensor_msgs/CameraInfo.h>
 #include <message_filters/subscriber.h>
-#include <tf/message_filter.h>
+#include <tf2_ros/message_filter.h>
 
 #include <geometry_msgs/Pose.h>
 #include <geometry_msgs/PoseStamped.h>
@@ -155,7 +155,7 @@ private:
 
   //This deals with the camera info
   message_filters::Subscriber<sensor_msgs::CameraInfo> caminfo_sub_;
-  tf::MessageFilter<sensor_msgs::CameraInfo>* caminfo_tf_filter_;
+  tf2_ros::MessageFilter<sensor_msgs::CameraInfo>* caminfo_tf_filter_;
 
   sensor_msgs::CameraInfo::ConstPtr current_caminfo_;
   boost::mutex caminfo_mutex_;
